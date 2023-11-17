@@ -1,0 +1,10 @@
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<main>
+	<% if(typeof items !== 'undefined') { %> <% items.forEach(function(item) { %>
+	<h3>Item: <%= item.name %></h3>
+	<p>Description: <%= item.description %></p>
+	<p>Price: <%= item.price %>$</p>
+	<p>Number In Stock: <%= item.numberInStock %></p>
+	<% }) %> <% } %>
+</main>

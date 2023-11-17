@@ -1,0 +1,58 @@
+<form action="" method="post">
+	<div>
+		<label for="productName">Product Name: </label>
+		<input
+			type="text"
+			id="productName"
+			name="productName"
+			value="<%= typeof newItem === 'undefined' ? '' : newItem.name %>"
+		/>
+	</div>
+	<div>
+		<label for="description">Description: </label>
+		<textarea
+			name="description"
+			id="description"
+			placeholder="Please write a short description."
+		>
+<%= typeof newItem === 'undefined' ? '' : newItem.description %></textarea
+		>
+	</div>
+	<div>
+		<label for="numberInStock">Number of Stock: </label>
+		<input
+			type="text"
+			id="quantity"
+			name="numberInStock"
+			placeholder="Quantity"
+			value="<%= typeof newItem === 'undefined' ? '' : newItem.numberInStock %>"
+		/>
+	</div>
+	<div>
+		<label for="price">Price: </label>
+		<input
+			type="text"
+			id="price"
+			name="price"
+			placeholder="Price."
+			value="<%= typeof newItem === 'undefined' ? '' : newItem.price %>"
+		/>
+	</div>
+	<div>
+		<label for="category">Category: </label>
+		<select name="category" id="category">
+			<% if (typeof categories !== "undefined") { %> <%
+			categories.forEach(category => { %>
+			<option value="<%= category._id %>"><%= category.categoryName %></option>
+			<% }) %> <% } %>
+		</select>
+	</div>
+	<button type="submit">submit</button>
+</form>
+<% if (typeof errors != 'undefined') { %>
+<ul>
+	<% errors.forEach(function (err) { %>
+	<li><%= err.msg %></li>
+	<% }) %>
+</ul>
+<% } %>

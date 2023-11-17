@@ -1,0 +1,38 @@
+<form action="" method="post">
+	<div>
+		<label for="categoryName">
+			<input
+				type="text"
+				name="categoryName"
+				id="categoryName"
+				placeholder="Category."
+				value="<%= typeof newCategory === 'undefined'
+			? '' : newCategory.categoryName %>"
+			/>
+		</label>
+	</div>
+	<div>
+		<label for="description">
+			<textarea
+				name="description"
+				id="description"
+				cols="30"
+				rows="10"
+				placeholder="Please write a short description."
+			>
+<%= typeof newCategory === 'undefined'
+			? '' : newCategory.description %></textarea
+			>
+		</label>
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
+<% if (typeof errors !== 'undefined') { %>
+<ul>
+	<% errors.forEach(function(err) { %>
+	<li><%= err.msg %></li>
+	<% }) %>
+</ul>
+
+<% } %>
